@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Table from './Table';
+import PollBox from './PollBox'
 
 function App() {
 
   return (
     <div className="App">
       <div className="container">
-        <Table />
+        <PollBox />
       </div>
     </div>
   );
