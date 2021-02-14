@@ -105,3 +105,9 @@ dist
 
 # vs code settings
 settings.json
+
+#firebase config js
+fireb.js
+
+#cached files
+.cache
