@@ -23,7 +23,6 @@ const pollStyle = {
 class PollBox extends Component {
   constructor(props) {
     super(props);
-  
     this.state = {
       yesCount: 0,
       noCount: 0,
@@ -33,9 +32,8 @@ class PollBox extends Component {
   }
 
   componentDidMount() {
-    db.collection("pollz").doc("breakfastquestion")
-    .get()
-    .then((doc) => {
+    this.unsub = db.collection("pollz").doc("breakfastquestion")
+    .onSnapshot((doc) => {
         let result = doc.data()
         this.setState({
           yesCount: result.yescount,
@@ -46,6 +44,9 @@ class PollBox extends Component {
       })
   }
 
+  componentWillUnmount() {
+    this.unsub()
+  }
 
   addYes = () => {
     let newCount = this.state.yesCount + 1
